@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Meetings";
+}
+
+@model List<Mini_CRM.Models.Meeting>
+
+<h2>Görüşmeler</h2>
+
+<p>
+    <a href="/Meetings/Create" class="btn btn-primary">Yeni Görüşme</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Firma</th>
+            <th>Tarih</th>
+            <th>Tür</th>
+            <th>Not</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.Company.CompanyName</td>
+                <td>@m.MeetingDate.ToShortDateString()</td>
+                <td>@m.MeetingType</td>
+                <td>@m.MeetingNote</td>
+                <td>
+                    <a href="/Meetings/Edit/@m.MeetingId" class="btn btn-warning btn-sm">Düzenle</a>
+                    <a href="/Meetings/Delete/@m.MeetingId"
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Silinsin mi?')">
+                        Sil
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

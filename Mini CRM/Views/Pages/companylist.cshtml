@@ -1,0 +1,70 @@
+﻿@model List<Mini_CRM.Models.Company>
+
+@{
+    ViewBag.Title = "Company List";
+}
+
+<h2>Firmalar</h2>
+
+<p>
+    @Html.ActionLink(
+        "Yeni Firma Ekle",
+        "Create",
+        "Companies",
+        null,
+        new { @class = "btn btn-primary" }
+    )
+</p>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info">
+        Henüz kayıtlı firma yok.
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Firma Adı</th>
+                <th>Yetkili</th>
+                <th>Telefon</th>
+                <th>Email</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CompanyName</td>
+                    <td>@item.Responsible</td>
+                    <td>@item.Telephone</td>
+                    <td>@item.Email</td>
+                    <td>
+                        @Html.ActionLink(
+                            "Düzenle",
+                            "Edit",
+                            "Companies",
+                            new { id = item.CompanyId },
+                            new { @class = "btn btn-warning btn-sm" }
+                        )
+
+                        @Html.ActionLink(
+                            "Sil",
+                            "Delete",
+                            "Companies",
+                            new { id = item.CompanyId },
+                            new
+                            {
+                                @class = "btn btn-danger btn-sm",
+                                onclick = "return confirm('Silmek istiyor musunuz?')"
+                            }
+                        )
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

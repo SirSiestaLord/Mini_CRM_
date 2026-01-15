@@ -1,0 +1,57 @@
+@model Mini_CRM.Models.Meeting
+
+@{
+    ViewBag.Title = "Yeni Görüþme";
+}
+@Html.AntiForgeryToken()
+<h2>Yeni Görüþme</h2>
+
+@using (Html.BeginForm("Create", "Meetings", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label class="form-label">Firma</label>
+        @Html.DropDownListFor(
+            x => x.CompanyId,
+            (List<SelectListItem>)ViewBag.Companies,
+            "Firma Seç",
+            new { @class = "form-select" }
+        )
+        @Html.ValidationMessageFor(x => x.CompanyId, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Görüþme Tarihi</label>
+        @Html.TextBoxFor(x => x.MeetingDate,
+            new { type = "date", @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.MeetingDate, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Görüþme Türü</label>
+        @Html.DropDownListFor(
+            x => x.MeetingType,
+            new SelectList(new[] { "Telefon", "Yüz yüze", "Online" }),
+            "Seçiniz",
+            new { @class = "form-select" }
+        )
+        @Html.ValidationMessageFor(x => x.MeetingType, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Görüþme Notu</label>
+        @Html.TextAreaFor(x => x.MeetingNote,
+            new { @class = "form-control", rows = 4 })
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Sonraki Aksiyon Tarihi</label>
+        @Html.TextBoxFor(x => x.NextActionDate,
+            "{0:yyyy-MM-dd}",
+            new { type = "date", @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+ 
+}

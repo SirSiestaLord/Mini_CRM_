@@ -1,0 +1,34 @@
+@model Mini_CRM.Models.Company
+@{
+    ViewBag.Title = "Company Edit";
+}
+<h2>Firma</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.CompanyId)
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label>Firma Adý</label>
+        @Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Yetkili Kiþi</label>
+        @Html.TextBoxFor(x => x.Responsible, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Telefon</label>
+        @Html.TextBoxFor(x => x.Telephone, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-success">Kaydet</button>
+}

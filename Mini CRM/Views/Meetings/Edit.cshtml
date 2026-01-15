@@ -1,0 +1,51 @@
+@model Mini_CRM.Models.Meeting
+
+@{
+    ViewBag.Title = "Görüþme Düzenle";
+}
+-<h2>Görüþme Düzenle</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.MeetingId)
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label>Firma</label>
+        @Html.DropDownListFor(
+          x => x.CompanyId,
+          (SelectList)ViewBag.Companies,
+          "Firma Seç",
+          new { @class = "form-control" })
+
+    </div>
+
+    <div class="form-group">
+        <label>Görüþme Tarihi</label>
+        @Html.TextBoxFor(x => x.MeetingDate, "{0:yyyy-MM-dd}",
+            new { @type = "date", @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Görüþme Türü</label>
+        @Html.DropDownListFor(x => x.MeetingType,
+            new SelectList(new[] { "Telefon", "Yüz yüze", "Online" }, Model.MeetingType),
+            "Tür Seç",
+            new { @class = "form-control" })
+
+    </div>
+
+    <div class="form-group">
+        <label>Görüþme Notu</label>
+        @Html.TextAreaFor(x => x.MeetingNote,
+            new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Sonraki Aksiyon Tarihi</label>
+        @Html.TextBoxFor(x => x.NextActionDate, "{0:yyyy-MM-dd}",
+            new { @type = "date", @class = "form-control" })
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-success">Kaydet</button>
+</form>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mini CRM", "Mini CRM\Mini CRM.csproj", "{C3820993-4D23-4FDC-AAE7-C96D7A0CFF9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3820993-4D23-4FDC-AAE7-C96D7A0CFF9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3820993-4D23-4FDC-AAE7-C96D7A0CFF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3820993-4D23-4FDC-AAE7-C96D7A0CFF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3820993-4D23-4FDC-AAE7-C96D7A0CFF9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3D484A5-B497-4A3F-A4BB-55D5D2630588}
+	EndGlobalSection
+EndGlobal
