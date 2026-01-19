@@ -5,37 +5,29 @@ using System.Net;
 using System.Web.Mvc;
 
 namespace Mini_CRM.Controllers
-{
+{ //Şirketler için veritabanı işlemlerini yöneten denetleyici
     public class CompaniesController : Controller
     {
         private readonly MiniCrmContext db = new MiniCrmContext();
 
-        // =========================
         // LIST
-        // =========================
         public ActionResult Index()
         {
             var companies = db.Companies
                               .OrderByDescending(c => c.CompanyId)
                               .ToList();
 
-            // Eğer özel view kullanmak istiyorsan
             return View("~/Views/Pages/companylist.cshtml", companies);
-            // yoksa standart view
-            // return View(companies);
+       
         }
 
-        // =========================
         // CREATE (GET)
-        // =========================
         public ActionResult Create()
         {
             return View();
         }
 
-        // =========================
         // CREATE (POST)
-        // =========================
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Company company)
@@ -47,9 +39,7 @@ namespace Mini_CRM.Controllers
 
         }
 
-        // =========================
         // EDIT (GET)
-        // =========================
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -62,9 +52,7 @@ namespace Mini_CRM.Controllers
             return View(company);
         }
 
-        // =========================
         // EDIT (POST)
-        // =========================
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Company company)
@@ -92,9 +80,7 @@ namespace Mini_CRM.Controllers
         }
 
 
-        // =========================
         // DISPOSE
-        // =========================
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -4,7 +4,7 @@
     ViewBag.Title = "Görüþme Düzenle";
 }
 -<h2>Görüþme Düzenle</h2>
-
+@* Ýlk önce seçilen görüþmeyi yükler ve deðiþiklikler yapýlabilir *@
 <form method="post">
     @Html.HiddenFor(x => x.MeetingId)
     @Html.AntiForgeryToken()

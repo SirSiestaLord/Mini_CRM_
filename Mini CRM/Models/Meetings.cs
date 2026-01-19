@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mini_CRM.Models
-{
+{//Toplantılar ya da görüşmeler için veritabanı modeli
     [Table("meetings_table")]
     public class Meeting
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mini_CRM.Models
-{
+{//Şirketler için veritabanı modeli
     [Table("company_table")]
     public class Company
     {

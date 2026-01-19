@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace Mini_CRM.Controllers
 {
     public class PagesController : Controller
-    {
+    {//Şirketleri listeleyen denetleyici. İlerleyen süreçte CompaniesController a alınabilir.
         string connStr = ConfigurationManager.ConnectionStrings["MiniCRMConnection"].ConnectionString;
 
         public ActionResult companylist() { 
@@ -57,7 +57,6 @@ namespace Mini_CRM.Controllers
 
         public ActionResult meetings()
         {
-            ViewBag.Message = "Your application description page.";
             return View();
         }
     }

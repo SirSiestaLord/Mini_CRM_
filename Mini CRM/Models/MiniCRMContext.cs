@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-
+// Veritabanı bağlamı sınıfı ve varlık yapılandırması
 namespace Mini_CRM.Models
 {
     public class MiniCrmContext : DbContext

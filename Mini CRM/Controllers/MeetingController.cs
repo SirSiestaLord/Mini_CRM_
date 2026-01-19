@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 
 public class MeetingsController : Controller
-{
+{//Görüşmeler için veritabanı işlemlerini yöneten denetleyici
     MiniCrmContext db = new MiniCrmContext();
 
     public ActionResult Index()
