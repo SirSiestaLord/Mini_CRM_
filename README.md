@@ -1,9 +1,3 @@
-Harika bir başlangıç! Paylaştığın bilgiler ışığında, projenin profesyonel görünmesini sağlayacak, kullanıcı dostu ve teknik detayları düzenli bir şekilde sunan kapsamlı bir **README.md** hazırladım.
-
-Aşağıdaki metni doğrudan projenin ana dizinine kopyalayıp yapıştırabilirsin.
-
----
-
 # 🏢 Mini CRM Projesi
 
 **Mini CRM**, küçük ve orta ölçekli işletmelerin müşteri portföylerini yönetmeleri, görüşme kayıtlarını tutmaları ve iş süreçlerini dijitalleştirmeleri için geliştirilmiş web tabanlı bir yönetim panelidir.
