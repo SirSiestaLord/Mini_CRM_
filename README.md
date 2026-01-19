@@ -1,116 +1,17 @@
-2️⃣ NuGet paketlerini yükleyin
-
-Visual Studio: Tools -> NuGet Package Manager -> Manage NuGet Packages for Solution
-
-Paketler: EntityFramework, Newtonsoft.Json
-
-3️⃣ Web.config ayarları
-
-Connection String ekleyin:
-
-<connectionStrings>
-    <add name="MiniCrmContext" 
-         connectionString="Server=.;Database=MiniCRM_DB;Trusted_Connection=True;" 
-         providerName="System.Data.SqlClient" />
+🏢 Mini CRM ProjesiMini CRM, küçük ve orta ölçekli işletmelerin müşteri portföylerini yönetmeleri, görüşme kayıtlarını tutmaları ve iş süreçlerini dijitalleştirmeleri için geliştirilmiş web tabanlı bir yönetim panelidir.🚀 Öne Çıkan ÖzelliklerFirma Yönetimi: Firma ekleme, listeleme, güncelleme ve silme işlemleri.Görüşme Takibi: Firmalara özel görüşme notları ve tarihsel veri yönetimi.İlişkisel Veri Yapısı: EF Code First ile kurulan 1:N (Bire-Çok) ilişki mimarisi.Modern UI: Bootstrap 5 ile tamamen responsive (mobil uyumlu) arayüz.Validation: jQuery tabanlı form doğrulamaları ile güvenli veri girişi.Cascade Delete: Firma silindiğinde ilgili tüm görüşmelerin otomatik temizlenmesi.🛠️ Kullanılan TeknolojilerBackend: ASP.NET MVC 5, .NET Framework 4.8ORM: Entity Framework 6 (Code First)Veritabanı: MS SQL ServerFrontend: Bootstrap 5, jQuery, Razor View EngineAraçlar: Newtonsoft.Json, NuGet Package Manager💻 Kurulum ve Çalıştırma1. Projeyi Yerel Bilgisayarınıza İndirinBashgit clone https://github.com/kullaniciadi/mini-crm.git
+cd mini-crm
+2. Veritabanı Ayarları (Web.config)Web.config dosyasını açın ve connectionStrings bölümünü kendi SQL Server bilgilerinize göre güncelleyin:XML<connectionStrings>
+  <add name="MiniCrmContext" 
+       connectionString="Server=YOUR_SERVER_NAME;Database=MiniCRM_DB;Trusted_Connection=True;" 
+       providerName="System.Data.SqlClient" />
 </connectionStrings>
-
-
-Not: Server=.; kısmını kendi SQL Server instance’ınıza göre değiştirin.
-Database=MiniCRM_DB istediğiniz veritabanı adı olabilir.
-
-Veritabanı Entegrasyonu (Entity Framework Code First)
-1️⃣ DbContext tanımı (MiniCrmContext.cs)
-using System.Data.Entity;
-
-namespace Mini_CRM.Models
-{
-    public class MiniCrmContext : DbContext
-    {
-        public MiniCrmContext() : base("name=MiniCrmContext") { }
-
-        public DbSet<Company> Companies { get; set; }
-        public DbSet<Meeting> Meetings { get; set; }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Company>()
-                        .HasMany(c => c.Meetings)
-                        .WithRequired(m => m.Company)
-                        .HasForeignKey(m => m.CompanyId)
-                        .WillCascadeOnDelete(true);
-
-            base.OnModelCreating(modelBuilder);
-        }
-    }
-}
-
-2️⃣ Database’i oluşturmak
-
-Package Manager Console kullanın ve sırasıyla çalıştırın:
-
-Enable-Migrations
+3. Migration ve Veritabanı OluşturmaVisual Studio'da Package Manager Console ekranını açın ve aşağıdaki komutları sırasıyla çalıştırın:PowerShellEnable-Migrations
 Add-Migration InitialCreate
 Update-Database
-
-
-Bu işlemler Code First ile tabloları ve ilişkileri oluşturur.
-
-Veri Tabanı Şeması
-
-Company Tablosu (Companies)
-
-Column	Tip	Açıklama
-CompanyId	int (PK)	Otomatik artan ID
-CompanyName	nvarchar(100)	Firma adı
-Responsible	nvarchar(100)	Yetkili kişi
-Telephone	nvarchar(50)	Telefon numarası
-Email	nvarchar(100)	Email adresi
-CreatedAt	datetime	Oluşturulma zamanı (default GETDATE())
-
-Meeting Tablosu (Meetings)
-
-Column	Tip	Açıklama
-MeetingId	int (PK)	Otomatik artan ID
-CompanyId	int (FK)	İlişkili firma ID (Companies.CompanyId)
-Subject	nvarchar(200)	Görüşme konusu
-Description	nvarchar(max)	Açıklama
-MeetingDate	datetime	Görüşme tarihi
-
-Not: Company → Meeting ilişkisi 1:N şeklindedir ve Cascade on Delete aktif.
-
-Kullanım
-
-Visual Studio’da projeyi açın.
-
-F5 tuşuna basarak uygulamayı çalıştırın.
-
-Üst menüden Firma İşlemleri veya Görüşmeler sayfalarına erişin.
-
-Yeni firmalar ekleyin, düzenleyin veya silin.
-
-Görüşmeleri firma ile ilişkilendirin.
-
-Proje Yapısı
-
-Controllers/ → Controller dosyaları
-
-Models/ → Entity Framework modelleri
-
-Views/ → Razor sayfaları (Partial ve Layout kullanımı)
-
-Scripts/ → jQuery, Bootstrap JS
-
-Content/ → CSS ve görseller
-
-Örnek Ekran Görüntüleri
-
-Firma Listesi
-
-
-Firma Ekle / Düzenle
-
-
-Görüşmeler
-
-
-Not: docs/screenshots/ klasörünü projeye ekleyip kendi ekran görüntülerinizi koyabilirsiniz.
+📊 Veri Modeli ve ŞemaProje iki ana tablo üzerine kurgulanmıştır:Companies (Firmalar)KolonTipAçıklamaCompanyIdint (PK)Birincil AnahtarCompanyNamenvarchar(100)Firma AdıResponsiblenvarchar(100)Yetkili KişiTelephonenvarchar(50)İletişim NumarasıEmailnvarchar(100)E-posta AdresiMeetings (Görüşmeler)KolonTipAçıklamaMeetingIdint (PK)Birincil AnahtarCompanyIdint (FK)İlgili FirmaSubjectnvarchar(200)Görüşme KonusuMeetingDatedatetimeGörüşme Zamanı📂 Proje YapısıPlaintextMini_CRM/
+├── Controllers/    # İş mantığının yönetildiği sınıflar
+├── Models/         # Entity sınıfları ve DbContext (Code First)
+├── Views/          # UI bileşenleri (Partial View & Layout)
+├── Scripts/        # JavaScript ve jQuery kütüphaneleri
+└── Content/        # CSS ve Tasarım dosyaları
+📸 Ekran Görüntüleri(Buraya kendi ekran görüntülerini ekleyebilirsin)Not: Projeyi çalıştırmak için Visual Studio 2019 veya 2022 kullanmanız önerilir.
