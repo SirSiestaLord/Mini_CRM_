@@ -28,7 +28,7 @@
 ### 1. Projeyi Yerel Bilgisayarınıza İndirin
 
 ```bash
-git clone https://github.com/kullaniciadi/mini-crm.git
+git clone (https://github.com/SirSiestaLord/Mini_CRM_.git)
 cd mini-crm
 
 ```
