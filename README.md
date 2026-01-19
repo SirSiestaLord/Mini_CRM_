@@ -79,8 +79,10 @@ Proje iki ana tablo üzerine kurgulanmıştır:
 | --- | --- | --- |
 | `MeetingId` | int (PK) | Birincil Anahtar |
 | `CompanyId` | int (FK) | İlgili Firma |
-| `Subject` | nvarchar(200) | Görüşme Konusu |
-| `MeetingDate` | datetime | Görüşme Zamanı |
+| `ActionDate` | datetime | Görüşme Zamanı |
+| `MeetingNote` | nvarchar(200) | Görüşme Konusu |
+| `MeetingType` | nvarchar(200) | Görüşme Tipi |
+| `NextActionDate` | datetime | Gelecek Görüşme Zamanı |
 
 ---
 
