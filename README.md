@@ -106,6 +106,15 @@ Mini_CRM/
 
 ## 📸 Ekran Görüntüleri
 
-*(Buraya kendi ekran görüntülerini ekleyebilirsin)*
+<img width="1318" height="322" alt="image" src="https://github.com/user-attachments/assets/68a70d86-3354-4487-a8d3-cbb5bccaa153" />
+<img width="1297" height="257" alt="image" src="https://github.com/user-attachments/assets/6c227339-4567-4978-9ff1-732b31f5ce0a" />
+<img width="395" height="372" alt="image" src="https://github.com/user-attachments/assets/e1b24b28-7bd6-40c5-99a6-c5f812671d18" />
+<img width="1383" height="201" alt="image" src="https://github.com/user-attachments/assets/1b1ce57d-515b-4647-8f0f-c5608736fec7" />
+<img width="427" height="601" alt="image" src="https://github.com/user-attachments/assets/8b4067e1-f120-4bb3-aac1-cddd2df87b42" />
+<img width="1373" height="198" alt="image" src="https://github.com/user-attachments/assets/cd692582-86c7-4c64-9fd6-bf5e64737f41" />
 
-> **Not:** Projeyi çalıştırmak için Visual Studio 2019 veya 2022 kullanmanız önerilir.
+
+> **Not #1:** Projeyi çalıştırmak için Visual Studio 2019 veya 2022 kullanmanız önerilir.
+> **Not #2:** Başlangıçta bin\roslyn\csc.exe hatası alırsanız projeyi kapatın ve dosya üzerinden master dosyasını kapsayacak şekilde açın. daha sonrasında .sln dosyası ile projeyi açabilirsiniz.
+> **Not #3:** Örnek database dosyası yüklenmiştir, veritabanınıza bu dosyayı da yükleyebilirsiniz.
+
