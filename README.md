@@ -110,5 +110,3 @@ Mini_CRM/
 
 > **Not #1:** Projeyi çalıştırmak için Visual Studio 2019 veya 2022 kullanmanız önerilir.
 > **Not #2:** Başlangıçta bin\roslyn\csc.exe hatası alırsanız projeyi kapatın ve dosya üzerinden master dosyasını kapsayacak şekilde açın. daha sonrasında .sln dosyası ile projeyi açabilirsiniz.
-> **Not #3:** Örnek database dosyası yüklenmiştir, veritabanınıza bu dosyayı da yükleyebilirsiniz.
-
