@@ -1,3 +1,4 @@
+```bash
 # Mini CRM Projesi
 
 ![Mini CRM](https://img.shields.io/badge/MVC-ASP.NET-blue)
@@ -35,7 +36,7 @@ Projede **ASP.NET MVC 5**, **.NET Framework 4.8**, **Entity Framework (Code Firs
 ## Kurulum
 
 1️⃣ Projeyi klonlayın
-```bash
+
 git clone https://github.com/kullaniciadi/mini-crm.git
 cd mini-crm
 
@@ -46,6 +47,7 @@ Paketler: EntityFramework, Newtonsoft.Json
 
 3️⃣ Web.config ayarları
 Connection String ekleyin:
+```bash
 
 xml
 Kodu kopyala
